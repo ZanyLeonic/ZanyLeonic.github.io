@@ -1,0 +1,5 @@
+Version 0.2a:
+	* Added the following additions to the GUI:
+		- Added settings window
+	* Corrected error handling in iolib and conlib
+	* Updated the command line version of LBT to match the new corrections.
