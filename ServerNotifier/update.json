@@ -1,11 +1,12 @@
 {
   "homepage": "https://poweredbykurisu.visualstudio.com/ServerNotifier/_git/ServerNotifier",
   "promos": {
-    "1.12.2-latest": "1.0.1a",
-    "1.12.2-recommended": "1.0.1a"
+    "1.12.2-latest": "1.0.2a",
+    "1.12.2-recommended": "1.0.2a"
   },
   "1.12.2": {
+    "1.0.2a": "Forgot to remove hardcoded WebHook URL, resulting in every server owner's state being sent to the same WebHook.",
     "1.0.1a": "Fixed a bug where the client required the mod as well.",
-    "1.0a": "Initial release"
+    "1.0.0a": "Initial release"
   }
 }
