@@ -6,13 +6,13 @@
   </head>
   <body onload="getCode()">
     <h1>Auth completed!</h1>
-    <p>Copy this code to the bot: <input id="code" type="text" onclick="copyToBoard()"></input></p>
+    <p>Copy this code to the bot:<br /><input id="code" type="text" onclick="copyToBoard()"></input></p>
     <script type="text/javascript">
       function getCode() {
         const queryString = window.location.search;
         const urlParams = new URLSearchParams(queryString);
         
-        document.getElementById("code").innerText = urlParams.get("code");
+        document.getElementById("code").value = urlParams.get("code");
       }
       
       function copyToBoard() {
