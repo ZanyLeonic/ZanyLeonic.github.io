@@ -4,8 +4,16 @@
     <meta charset="UTF-8">
     <title>rEEEEEEE</title>
   </head>
-  <body>
+  <body onload="getCode()">
     <h1>Auth completed!</h1>
-    <p>You can close this window now.</p>
+    <p>Code: <pre id="code"></pre></p>
+    <script type="text/javascript">
+      function getCode() {
+        const queryString = window.location.search;
+        const urlParams = new URLSearchParams(queryString);
+        
+        document.getElementById("code").innerText = urlParams.get("code");
+      }
+    </script>
   </body>
 </html>
