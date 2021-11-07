@@ -6,7 +6,7 @@
   </head>
   <body onload="getCode()">
     <h1>Auth completed!</h1>
-    <p>Copy this code to the bot: <pre id="code" onclick="copyToBoard()"></pre></p>
+    <p>Copy this code to the bot: <input id="code" type="text" onclick="copyToBoard()"></input></p>
     <script type="text/javascript">
       function getCode() {
         const queryString = window.location.search;
