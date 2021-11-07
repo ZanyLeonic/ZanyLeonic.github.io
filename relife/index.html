@@ -6,13 +6,26 @@
   </head>
   <body onload="getCode()">
     <h1>Auth completed!</h1>
-    <p>Copy this code to the bot: <pre id="code"></pre></p>
+    <p>Copy this code to the bot: <pre id="code" onclick="copyToBoard()"></pre></p>
     <script type="text/javascript">
       function getCode() {
         const queryString = window.location.search;
         const urlParams = new URLSearchParams(queryString);
         
         document.getElementById("code").innerText = urlParams.get("code");
+      }
+      
+      function copyToBoard() {
+        /* From https://www.w3schools.com/howto/howto_js_copy_clipboard.asp */
+        /* Get text element */
+        var copyText = document.getElementById("code");
+
+        /* Select the text field */
+        copyText.select();
+        copyText.setSelectionRange(0, 99999); /* For mobile devices */
+
+        /* Copy the text inside the text field */
+        navigator.clipboard.writeText(copyText.value);
       }
     </script>
   </body>
