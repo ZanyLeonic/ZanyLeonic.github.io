@@ -1,18 +1,27 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
     <meta charset="UTF-8">
-    <title>rEEEEEEE</title>
+    <title>Authorization success!</title>
+    <style type="text/css">
+      body {
+        font-family: Sans-Serif;
+      }
+    </style>
   </head>
   <body onload="getCode()">
-    <h1>Auth completed!</h1>
-    <p>Copy this code to the bot:<br /><input id="code" type="text" onclick="copyToBoard()"></input></p>
+    <h1>Authenication completed!</h1>
+    <p>Copy this code to the bot with <code>/ocode</code> in DMs<br><input id="code" type="text" onclick="copyToBoard()"></p>
     <script type="text/javascript">
       function getCode() {
         const queryString = window.location.search;
         const urlParams = new URLSearchParams(queryString);
         
         document.getElementById("code").value = urlParams.get("code");
+		    var input = document.querySelector('input'); // get the input element
+		    input.addEventListener('input', resizeInput); // bind the "resizeInput" callback on "input" event
+		    resizeInput.call(input); // immediately call the function
       }
       
       function copyToBoard() {
@@ -27,10 +36,6 @@
         /* Copy the text inside the text field */
         navigator.clipboard.writeText(copyText.value);
       }
-      
-      var input = document.querySelector('input'); // get the input element
-      input.addEventListener('input', resizeInput); // bind the "resizeInput" callback on "input" event
-      resizeInput.call(input); // immediately call the function
 
       function resizeInput() {
         this.style.width = this.value.length + "ch";
