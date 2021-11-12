@@ -11,17 +11,22 @@
     </style>
   </head>
   <body onload="getCode()">
-    <h1>Authenication completed!</h1>
-    <p>Copy this code to the bot with <code>/ocode</code> in DMs<br><input id="code" type="text" onclick="copyToBoard()"></p>
+    <h1 id="title">Authenication completed!</h1>
+    <div id="text"><p>Copy this code to the bot with <code>/ocode</code> in DMs<br><input id="code" type="text" onclick="copyToBoard()"></p></div>
     <script type="text/javascript">
       function getCode() {
         const queryString = window.location.search;
         const urlParams = new URLSearchParams(queryString);
         
-        document.getElementById("code").value = urlParams.get("code");
-		    var input = document.querySelector('input'); // get the input element
-		    input.addEventListener('input', resizeInput); // bind the "resizeInput" callback on "input" event
-		    resizeInput.call(input); // immediately call the function
+	if (urlParams.get("code") == "") {
+		document.getElementById("title").innerText = "Authenication incomplete";
+		document.getElementById("text").innerHTML = "<p>Try again or close this window.";
+	} else {
+        	document.getElementById("code").value = urlParams.get("code");
+		var input = document.querySelector('input'); // get the input element
+		input.addEventListener('input', resizeInput); // bind the "resizeInput" callback on "input" event
+		resizeInput.call(input); // immediately call the function
+	}
       }
       
       function copyToBoard() {
