@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="UTF-8">
-    <title>Authorization success!</title>
+    <title>Authentication success!</title>
     <style type="text/css">
       body {
         font-family: Sans-Serif;
@@ -11,22 +11,23 @@
     </style>
   </head>
   <body onload="getCode()">
-    <h1 id="title">Authenication completed!</h1>
+    <h1 id="title">Authentication completed!</h1>
     <div id="text"><p>Copy this code to the bot with <code>/ocode</code> in DMs<br><input id="code" type="text" onclick="copyToBoard()"></p></div>
     <script type="text/javascript">
       function getCode() {
         const queryString = window.location.search;
         const urlParams = new URLSearchParams(queryString);
-        
-	if (urlParams.get("code") == "") {
-		document.getElementById("title").innerText = "Authenication incomplete";
-		document.getElementById("text").innerHTML = "<p>Try again or close this window.";
-	} else {
-        	document.getElementById("code").value = urlParams.get("code");
-		var input = document.querySelector('input'); // get the input element
-		input.addEventListener('input', resizeInput); // bind the "resizeInput" callback on "input" event
-		resizeInput.call(input); // immediately call the function
-	}
+
+        if (urlParams.has("error")) {
+          document.title = "Authentication Failed!";
+          document.getElementById("title").innerText = "Authentication Failed";
+          document.getElementById("text").innerHTML = "<p>Error: <code>" + urlParams.get("error") + "</code></p><p>Description: <code>" + urlParams.get("error_description") + "</code></p>";
+        } else {
+          document.getElementById("code").value = urlParams.get("code");
+          var input = document.querySelector('input'); // get the input element
+          input.addEventListener('input', resizeInput); // bind the "resizeInput" callback on "input" event
+          resizeInput.call(input); // immediately call the function
+        }
       }
       
       function copyToBoard() {
