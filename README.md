@@ -1,2 +1,2 @@
-# zanyleonic.github.io
-Files for various projects. Feel free to explore ;)
+# zanyleonic.github.io/leonic.co.uk
+A placeholder for more to come!
